@@ -4,14 +4,16 @@ class BookShelf extends React.Component {
   state = {};
 
   render() {
+    const { shelftitle, books, onChangeShelf } = this.props;
+
     return (
       <div className="bookshelf">
         <h2 className="bookshelf-title">
-          {this.props.shelftitle}
+          {shelftitle}
         </h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
-            {this.props.books.map(book =>
+            {books.map(book =>
               <li key={book.id} className="book">
                 <div className="book-top">
                   <div
@@ -23,7 +25,7 @@ class BookShelf extends React.Component {
                     }}
                   />
                   <div className="book-shelf-changer">
-                    <select value={book.shelf} onChange={e => this.props.onChangeShelf(book.id, e)}>
+                    <select value={book.shelf} onChange={e => onChangeShelf(book.id, e)}>
                       <option value="none" disabled>
                         Move to...
                       </option>

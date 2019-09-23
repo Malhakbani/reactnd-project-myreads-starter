@@ -19,6 +19,7 @@ class ListBooks extends React.Component {
   };
 
   render() {
+    const {booksShelf} = this.props
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -27,19 +28,19 @@ class ListBooks extends React.Component {
         <div className="list-books-content">
           <BookShelf
             key="currently"
-            books={this.props.booksShelf.filter(book => book.shelf === "currentlyReading")}
+            books={booksShelf.filter(book => book.shelf === "currentlyReading")}
             onChangeShelf={this.handleChangeShelf}
             shelftitle="Currently Reading"
           />
           <BookShelf
             key="wantToRead"
-            books={this.props.booksShelf.filter(book => book.shelf === "wantToRead")}
+            books={booksShelf.filter(book => book.shelf === "wantToRead")}
             onChangeShelf={this.handleChangeShelf}
             shelftitle="Want to Read"
           />
           <BookShelf
             key="read"
-            books={this.props.booksShelf.filter(book => book.shelf === "read")}
+            books={booksShelf.filter(book => book.shelf === "read")}
             onChangeShelf={this.handleChangeShelf}
             shelftitle="Read"
           />
